@@ -1,0 +1,43 @@
+
+
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  serverElements = [{type: 'server', name: 'test server', content: 'just test'}];
+
+  onServerAdded(server: {name: string, content: string}) {
+    this.serverElements.push({
+      type: 'server',
+      name: server.name,
+      content: server.content
+    });
+  }
+
+  onBlueprintAdded(server: {name: string, content: string}) {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: server.name,
+      content: server.content
+    });
+  }
+
+
+}
+
+
+<div class="container">
+  <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement"></app-server-element>
+    </div>
+  </div>
+</div>

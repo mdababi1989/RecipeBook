@@ -1,0 +1,10 @@
+<br>
+<div class="row">
+  <div class="col-xl-12">
+    <button class="btn btn-success btn-block">New Recipe</button>
+  </div>
+</div>
+<br>
+<div class="card" *ngFor="let recipe of recipes">
+  <app-recipe-item [recipe]="recipe"></app-recipe-item>
+</div>

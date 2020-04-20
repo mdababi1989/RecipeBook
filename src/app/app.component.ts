@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-recipe';
+  navItem: string= 'recipes';
+
+
+  navItemSet($event: string) {
+    this.navItem = $event;
+  }
 }

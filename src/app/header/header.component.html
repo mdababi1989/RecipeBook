@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Recipe Book</a>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="onClicked('recipes')">Recipes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="onClicked('shopping')">Shopping List</a>
+    </li>
+    <!-- Dropdown -->
+    <li class="nav-item dropdown" ngbDropdown>
+      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" ngbDropdownToggle>
+        Manage
+      </a>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <a class="dropdown-item" href="#" ngbDropdownItem>Save data</a>
+        <a class="dropdown-item" href="#" ngbDropdownItem>Fetch data</a>
+      </div>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,11 @@
+<div class="row no-gutters" (click)="onSelected()">
+  <div class="col-md-5" style="background: #868e96;">
+    <img [src]="recipe.imagePath" class="card-img-top h-100" alt="{{recipe.name}}" style="max-height: 100px">
+  </div>
+  <div class="col-md-7">
+    <div class="card-body">
+      <h5 class="card-title">{{recipe.name}}</h5>
+      <p class="card-text">{{recipe.description}}</p>
+    </div>
+  </div>
+</div>
