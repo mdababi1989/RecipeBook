@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Recipe} from '../recipe.model';
 import {RecipeService} from '../recipeService/recipe.service';
 
@@ -27,6 +27,7 @@ export class RecipeEditComponent implements OnInit {
         this.recipe = this.recipeService.getRecipe(this.id);
       }
       this.initForm();
+
     });
   }
 
