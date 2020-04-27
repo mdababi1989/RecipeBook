@@ -14,8 +14,8 @@
         Manage
       </a>
       <div class="dropdown-menu" ngbDropdownMenu>
-        <a class="dropdown-item"  ngbDropdownItem>Save data</a>
-        <a class="dropdown-item"  ngbDropdownItem>Fetch data</a>
+        <a class="dropdown-item"  ngbDropdownItem (click)="onSaveData()">Save data</a>
+        <a class="dropdown-item"  ngbDropdownItem (click)="onFetchData()">Fetch data</a>
       </div>
     </li>
   </ul>
