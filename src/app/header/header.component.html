@@ -9,13 +9,21 @@
       <a class="nav-link" routerLink="/shopping" routerLinkActive="active">Shopping List</a>
     </li>
     <!-- Dropdown -->
-    <li class="nav-item dropdown" ngbDropdown>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" *ngIf="!isAuthentificated()">
+      <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="isAuthentificated()">
+      <a class="nav-link" [routerLink]="onLogout()" routerLinkActive="active">Logout</a>
+    </li>
+    <li class="nav-item dropdown" ngbDropdown *ngIf="isAuthentificated()">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
         Manage
       </a>
       <div class="dropdown-menu" ngbDropdownMenu>
-        <a class="dropdown-item"  ngbDropdownItem (click)="onSaveData()">Save data</a>
-        <a class="dropdown-item"  ngbDropdownItem (click)="onFetchData()">Fetch data</a>
+        <a class="dropdown-item" ngbDropdownItem (click)="onSaveData()">Save data</a>
+        <a class="dropdown-item" ngbDropdownItem (click)="onFetchData()">Fetch data</a>
       </div>
     </li>
   </ul>

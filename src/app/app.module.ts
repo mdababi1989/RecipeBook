@@ -17,6 +17,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import {HttpClientModule} from '@angular/common/http';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { SignComponent } from './auth/sign/sign.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SigninComponent } from './auth/signin/signin.component';
     RecipeStartComponent,
     RecipeEditComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    SignComponent
   ],
   imports: [
     BrowserModule,

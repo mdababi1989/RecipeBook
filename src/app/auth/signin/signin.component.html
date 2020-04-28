@@ -1,1 +1,15 @@
-<p>signin works!</p>
+<form (ngSubmit)="onSignin()" #f="ngForm">
+  <h3 class="register-heading">Registration</h3>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Your Email *" value="" ngModel name="email"/>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password *" value="" ngModel  name="password"/>
+      </div>
+      <input type="submit" class="btnRegister" value="Register"/>
+    </div>
+  </div>
+</form>
