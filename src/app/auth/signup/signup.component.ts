@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {AuthService} from "../auth.service";
+import {NgForm} from '@angular/forms';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,6 +27,6 @@ export class SignupComponent implements OnInit {
   checkPasswords() {
     const pass = this.form.value.password;
     const confirmPass = this.form.value.confirmPassword;
-    return pass === confirmPass ? null : { notSame: true }
+    return pass === confirmPass ? null : { notSame: true };
   }
 }

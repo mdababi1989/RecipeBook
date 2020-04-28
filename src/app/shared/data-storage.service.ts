@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../recipes/recipeService/recipe.service';
 import {map} from 'rxjs/operators';
 import {Recipe} from '../recipes/recipe.model';
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class DataStorageService {
 
   fetchRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.get('https://ng-recipe-book-513f0.firebaseio.com/recipes.json?auth='+token)
+    return this.httpClient.get('https://ng-recipe-book-513f0.firebaseio.com/recipes.json?auth=' + token)
       .pipe(map((response: Recipe[]) => {
         for (const recipe of response) {
           if (!recipe.ingredients) {
@@ -35,5 +35,4 @@ export class DataStorageService {
         }
       );
   }
-
 }

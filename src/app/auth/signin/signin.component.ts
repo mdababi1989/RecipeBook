@@ -1,6 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {AuthService} from "../auth.service";
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {AuthService} from '../auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -8,17 +9,18 @@ import {AuthService} from "../auth.service";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  returnUrl: string;
 
-  @ViewChild('f') form: NgForm;
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSignin() {
-    const email = this.form.value.email;
-    const password = this.form.value.password;
+  onSignin(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
     this.authService.signinUser(email, password);
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.router.navigate([this.returnUrl]);
   }
 }
