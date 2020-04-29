@@ -1,18 +1,23 @@
 <form (ngSubmit)="onSignup()" #f="ngForm">
-  <h3 class="register-heading">Login</h3>
+  <h3 class="register-heading">Registration</h3>
   <br>
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Your Email *" value="" ngModel name="email"/>
+        <label for="email"></label>
+        <input id="email" type="email" class="form-control" placeholder="Your Email *" value="" ngModel name="email"/>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password *" value="" ngModel  name="password" #password/>
+        <label for="password"></label>
+        <input type="password" id="password" class="form-control" placeholder="Password *" value="" ngModel name="password"
+               #password/>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Confirm Password *" value="" ngModel name="confirmPassword"  [pattern]="password.value"/>
+        <label for="confirmPassword"></label>
+        <input type="password" class="form-control" placeholder="Confirm Password *" value="" ngModel
+               name="confirmPassword" id="confirmPassword" [pattern]="password.value"/>
       </div>
-      <input type="submit" class="btnRegister" value="Login"/>
+      <input type="submit" class="btnRegister" value="Register"/>
     </div>
   </div>
 </form>
