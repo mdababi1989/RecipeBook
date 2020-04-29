@@ -11,13 +11,13 @@
     <!-- Dropdown -->
   </ul>
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+    <li class="nav-item" *ngIf="!isAuthenticated()">
       <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" (click)="onLogout()" routerLinkActive="active"  *ngIf="authService.isAuthenticated()">Logout</a>
+      <a class="nav-link" (click)="onLogout()" routerLinkActive="active"  *ngIf="isAuthenticated()">Logout</a>
     </li>
-    <li class="nav-item dropdown" ngbDropdown *ngIf="authService.isAuthenticated()">
+    <li class="nav-item dropdown" ngbDropdown *ngIf="isAuthenticated()">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
         Manage
       </a>

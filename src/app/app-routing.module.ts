@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from "./home/home.component";
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from "./core/home/home.component";
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: 'recipes',loadChildren: () => import('./recipes/recipes.module').then(mod => mod.RecipesModule)}
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes)],
+    imports: [RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})],
     exports: [RouterModule]
   }
 )

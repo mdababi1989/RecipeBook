@@ -8,7 +8,7 @@ import {RecipeDetailsComponent} from "./recipe-details/recipe-details.component"
 
 const recipesRoutes=[
   {
-    path: 'recipes', component: RecipesComponent, children: [
+    path: '', component: RecipesComponent, children: [
       {path: '', component: RecipeStartComponent},
       {path: 'new', component: RecipeEditComponent, canActivate: [AuthGuardService]},
       {path: ':id', component: RecipeDetailsComponent, canActivate: [AuthGuardService]},
