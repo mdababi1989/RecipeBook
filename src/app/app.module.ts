@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {ShoppingModule} from "./shopping-list/shopping.module";
-import {AuthModule} from "./auth/auth.module";
-import {CoreModule} from "./core/core.module";
+import {ShoppingModule} from './shopping-list/utils/shopping.module';
+import {AuthModule} from './auth/auth.module';
+import {CoreModule} from './core/core.module';
+import {StoreModule} from '@ngrx/store';
+import {shoppingListReducer} from './shopping-list/store/shopping-list.reducers';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {CoreModule} from "./core/core.module";
     AuthModule,
     AppRoutingModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
   ],
   bootstrap: [AppComponent]
 })

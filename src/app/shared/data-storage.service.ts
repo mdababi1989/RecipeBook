@@ -20,14 +20,14 @@ export class DataStorageService {
 
   fetchRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.get('https://ng-recipe-book-513f0.firebaseio.com/recipes.json?auth=' + token)
-      .pipe(map((response: Recipe[]) => {
-        for (const recipe of response) {
+    return this.httpClient.get<Recipe[]>('https://ng-recipe-book-513f0.firebaseio.com/recipes.json?auth=' + token)
+      .pipe(map(recipes => {
+        for (const recipe of recipes) {
           if (!recipe.ingredients) {
             recipe.ingredients = [];
           }
         }
-        return response;
+        return recipes;
       }))
       .subscribe(
         (recipes: Recipe[]) => {
