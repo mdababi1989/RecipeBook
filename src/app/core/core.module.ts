@@ -3,11 +3,13 @@ import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
-import {AuthService} from '../auth/auth.service';
 import {DataStorageService} from '../shared/data-storage.service';
 import {RecipeService} from '../recipes/recipeService/recipe.service';
 import {AuthGuardService} from '../auth/auth-guard.service';
 import {NgbDropdownModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AuthInterceptor} from '../shared/auth.interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {LoggingInterceptor} from '../shared/logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,12 @@ import {NgbDropdownModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HeaderComponent
   ],
-  providers: [AuthService, DataStorageService, RecipeService, AuthGuardService]
+  providers:
+    [
+      DataStorageService, RecipeService, AuthGuardService,
+      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
+    ]
 })
 
 export class CoreModule {

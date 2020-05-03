@@ -1,12 +1,12 @@
-import {NgModule} from "@angular/core";
-import {RouterModule} from "@angular/router";
-import {RecipesComponent} from "./recipes.component";
-import {RecipeStartComponent} from "./recipe-start/recipe-start.component";
-import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
-import {AuthGuardService} from "../auth/auth-guard.service";
-import {RecipeDetailsComponent} from "./recipe-details/recipe-details.component";
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {RecipesComponent} from './recipes/recipes.component';
+import {RecipeStartComponent} from './recipe-start/recipe-start.component';
+import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
+import {AuthGuardService} from '../auth/auth-guard.service';
+import {RecipeDetailsComponent} from './recipe-details/recipe-details.component';
 
-const recipesRoutes=[
+const recipesRoutes = [
   {
     path: '', component: RecipesComponent, children: [
       {path: '', component: RecipeStartComponent},
