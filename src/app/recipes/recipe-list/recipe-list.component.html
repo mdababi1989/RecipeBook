@@ -5,6 +5,6 @@
   </div>
 </div>
 <br>
-<div class="card" *ngFor="let recipe of recipes; let i = index">
-  <app-recipe-item [index]="i"></app-recipe-item>
+<div class="card" *ngFor="let recipe of (recipesState|async).recipes; let i = index">
+  <app-recipe-item [recipe]="recipe" [index]="i"></app-recipe-item>
 </div>

@@ -9,6 +9,10 @@ import { ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RecipesRoutingModule} from './recipes-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {StoreModule} from '@ngrx/store';
+import {recipesReducers} from './store/recipes.reducers';
+import {EffectsModule} from '@ngrx/effects';
+import {RecipesEffects} from './store/recipes.effects';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     ReactiveFormsModule,
     RecipesRoutingModule,
-    NgbModule
+    NgbModule,
+    StoreModule.forFeature('recipes', recipesReducers),
+    EffectsModule.forFeature([RecipesEffects])
   ]
 })
 export class RecipesModule { }

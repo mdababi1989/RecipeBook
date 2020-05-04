@@ -3,8 +3,6 @@ import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
-import {DataStorageService} from '../shared/data-storage.service';
-import {RecipeService} from '../recipes/recipeService/recipe.service';
 import {AuthGuardService} from '../auth/auth-guard.service';
 import {NgbDropdownModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AuthInterceptor} from '../shared/auth.interceptor';
@@ -28,7 +26,7 @@ import {LoggingInterceptor} from '../shared/logging.interceptor';
   ],
   providers:
     [
-      DataStorageService, RecipeService, AuthGuardService,
+      AuthGuardService,
       {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
       {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
     ]

@@ -1,13 +1,8 @@
 import * as AuthActions from './auth.actions';
 
-export interface AppState {
-  auth: State;
-}
-
 export interface State {
   token: string;
   authentificated: boolean;
-
 }
 
 const initialState: State = {
